@@ -1,51 +1,51 @@
 # Diabetes Management System (DMS)
 
-Sistema clinico informativo per la gestione e il monitoraggio di pazienti affetti da diabete di tipo 2. Il software facilita l'interazione tra **Paziente** e **Diabetologo**, consentendo il tracciamento costante di parametri vitali, aderenza terapeutica e sintomatologia.
+A clinical information system for managing and monitoring patients with type 2 diabetes. The software facilitates interaction between **Patient** and **Diabetologist**, enabling continuous tracking of vital parameters, treatment adherence, and symptoms.
 
-## 📄 Documentazione Ufficiale
-Per un'analisi dettagliata dei requisiti, dei diagrammi UML e delle scelte implementative, consultare la:
-👉 **[Relazione Tecnica (PDF)](RELAZIONE_PROGETTO_INGEGNERIA_DEL_SOFTWARE_.pdf)**
-
----
-
-## Caratteristiche Principali
-
-Il sistema si concentra sul monitoraggio proattivo e sulla prevenzione di crisi glicemiche:
-* **Monitoraggio Glicemico**: Registrazione giornaliera dei livelli di glucosio con sistema di alert automatico in caso di parametri fuori norma.
-* **Gestione Terapie**: I diabetologi possono prescrivere farmaci e dosaggi; i pazienti registrano l'assunzione in tempo reale.
-* **Aderenza Terapeutica**: Monitoraggio automatico delle assunzioni. Se il sistema rileva tre giornate consecutive di mancata assunzione, genera un alert visibile al medico.
-* **Diario Clinico**: Segnalazione di sintomi, patologie concomitanti e note cliniche aggiornabili dai medici.
-* **Tracciabilità**: Sistema di logging integrato che registra quale medico ha effettuato modifiche ai dati in tempo reale.
-
-##  Architettura e Design Pattern
-
-Il progetto segue una progettazione orientata agli oggetti con una netta separazione delle responsabilità attraverso i seguenti pattern:
-
-### Pattern Architetturali
-* **Model-View-Controller (MVC)**: Separa la logica applicativa (Controller), la struttura dei dati (Model) e l'interfaccia utente (View).
-* **Data Access Object (DAO)**: Isola la logica di persistenza (SQL) dal resto dell'applicazione. Implementato per entità come `Patient`, `Measurement`, `Prescription`, `Intake` e `Symptom`[cite: 21].
-* **Facade**: 
-    * **Clinic Facade**: Punto di accesso unificato per le funzionalità cliniche generali.
-    * **Alert Service**: Gestore centralizzato per la generazione e validazione degli avvisi clinici.
-
-## 📂 Casi d'Uso Principali
-
-### Lato Paziente
-1. **Registrazione Glicemia**: Inserimento e modifica delle misurazioni giornaliere prima e dopo i pasti.
-2. **Segnalazione Sintomi**: Inserimento di sintomi predefiniti o descrizioni testuali di patologie e terapie concomitanti.
-3. **Registro Farmaci**: Registrazione dell'assunzione di farmaci specificando data, farmaco e dose.
-
-### Lato Diabetologo
-1. **Gestione Terapia**: Specifica di farmaco, dosaggio e istruzioni per i pazienti assegnati.
-2. **Visualizzazione Dati**: Monitoraggio andamento glicemico, sintomi segnalati e farmaci assunti dal paziente.
-3. **Aggiornamento Cartella**: Inserimento di note o segnalazioni cliniche aggiornate.
-
-## 🛠️ Sviluppo e Qualità
-
-* **Metodologia**: Approccio agile e incrementale con tecniche di **Pair Designing** e **Pair Programming**.
-* **Testing Automatizzato**: Utilizzo di **JUnit** per la validazione dello strato di persistenza (`JdbcPatientDao` e `JdbcMeasurementDao`).
-* **Validazione Utente**: Test di usabilità condotti su utenti non esperti per verificare l'intuitività dell'interfaccia.
+## 📄 Official Documentation
+For a detailed analysis of the requirements, UML diagrams, and implementation choices, see the:
+👉 **[Technical Report (PDF)](RELAZIONE_PROGETTO_INGEGNERIA_DEL_SOFTWARE_.pdf)**
 
 ---
-**Sviluppatori**: [Loris Hoxhaj, Andrew Bregoli, Lorenzo Oceano]  
-*Progetto realizzato per il corso di Ingegneria del Software*
+
+## Key Features
+
+The system focuses on proactive monitoring and the prevention of glycemic crises:
+* **Glycemic Monitoring**: Daily recording of glucose levels, with an automatic alert system for out-of-range values.
+* **Therapy Management**: Diabetologists can prescribe medications and dosages; patients record their intake in real time.
+* **Treatment Adherence**: Automatic monitoring of medication intake. If the system detects three consecutive days of missed intake, it generates an alert visible to the physician.
+* **Clinical Diary**: Reporting of symptoms, comorbidities, and clinical notes that physicians can update.
+* **Traceability**: Built-in logging system that records which physician made changes to the data in real time.
+
+## Architecture and Design Patterns
+
+The project follows an object-oriented design with a clear separation of responsibilities through the following patterns:
+
+### Architectural Patterns
+* **Model-View-Controller (MVC)**: Separates application logic (Controller), data structure (Model), and user interface (View).
+* **Data Access Object (DAO)**: Isolates the persistence logic (SQL) from the rest of the application. Implemented for entities such as `Patient`, `Measurement`, `Prescription`, `Intake`, and `Symptom`.
+* **Facade**:
+    * **Clinic Facade**: Unified access point for general clinical functionality.
+    * **Alert Service**: Centralized handler for generating and validating clinical alerts.
+
+## 📂 Main Use Cases
+
+### Patient Side
+1. **Blood Glucose Logging**: Entering and editing daily measurements before and after meals.
+2. **Symptom Reporting**: Selecting predefined symptoms or entering free-text descriptions of comorbidities and concurrent therapies.
+3. **Medication Log**: Recording medication intake, specifying date, drug, and dose.
+
+### Diabetologist Side
+1. **Therapy Management**: Specifying the drug, dosage, and instructions for assigned patients.
+2. **Data Viewing**: Monitoring glycemic trends, reported symptoms, and medications taken by the patient.
+3. **Record Updates**: Adding updated clinical notes or reports.
+
+## 🛠️ Development and Quality
+
+* **Methodology**: Agile, incremental approach using **Pair Designing** and **Pair Programming**.
+* **Automated Testing**: **JUnit** is used to validate the persistence layer (`JdbcPatientDao` and `JdbcMeasurementDao`).
+* **User Validation**: Usability tests conducted with non-expert users to verify the interface is intuitive.
+
+---
+**Developers**: [Loris Hoxhaj, Andrew Bregoli, Lorenzo Oceano]
+*Project developed for the Software Engineering course*
